@@ -1,0 +1,128 @@
+<!-- Doctype: loại văn bản -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="position: relative;">
+    <div>
+        <button onclick="lenTren()" style="position: absolute;left: 100px;top: 100px;">Lên</button>
+        <button onclick="diXuong()">Xuống</button>
+        <button onclick="sangTrai()">Trái</button>
+        <button onclick="sangPhai()">Phải</button>
+    </div>
+
+    <!-- 
+        src: thuộc tính của thẻ img
+        "dog.jpg": giá trị của thuộc tính src
+        Trỏ đến thẻ HTML thông qua thuộc tính id
+     -->
+    <img onclick="doiAnh()" style="width:400px; position: absolute; left: 100px; top: 100px;" id="anh" src="raichu.png" alt="anh-cho">
+
+    <script>
+        // let giaTri = document.getElementById("anh").alt;
+        // alert(giaTri);
+        document.getElementById('anh').style.width = '100px';
+        // let phuc = "Đặng Vĩnh Phúc";
+        // let result = phuc.match('Phúc');
+        // if (phuc.match('Phúc')) {
+        //     alert('True');
+        // }
+
+        function doiAnh() {
+            // let giaTri = document.getElementById("anh").src;
+            // alert(giaTri);
+            // if (document.getElementById('anh').src == "http://localhost:52330/dog.jpg") {
+            if (document.getElementById('anh').src.match("dog.jpg")) {
+                document.getElementById('anh').src = "dog2.png";
+            } else {
+                document.getElementById('anh').src = "dog.jpg";
+            }
+        }
+
+        function sangPhai() {
+            let left = document.getElementById('anh').style.left;
+            let intLeft = parseInt(left);
+            document.getElementById('anh').style.left = intLeft + 10 + "px";
+
+        }
+
+        function sangTrai() {
+            let left = document.getElementById('anh').style.left;
+            let intLeft = parseInt(left);
+            document.getElementById('anh').style.left = intLeft - 10 + "px";
+        }
+
+        function lenTren() {
+            let top = document.getElementById('anh').style.top;
+            let intTop = parseInt(top);
+            document.getElementById('anh').style.top = intTop - 10 + "px";
+        }
+
+        function diXuong() {
+            let top = document.getElementById('anh').style.top;
+            let intTop = parseInt(top);
+            document.getElementById('anh').style.top = intTop + 10 + "px";
+        }
+
+        function tanCong() {
+            let soNgauNhien = (Math.random() * 40) + 30; //0 -> 0.9999
+            let soNguyen = parseInt(soNgauNhien);
+            // alert(soNguyen);
+            alert("Raichu tấn công : " + soNguyen);
+
+            //số ngẫu nhiên từ 30 -> 70
+
+        }
+
+        function suKienBanPhim(evt) {
+            // alert(evt.key);
+            if (evt.key == "ArrowUp") {
+                lenTren();
+            }
+            if (evt.key == "ArrowDown") {
+                diXuong();
+            }
+            if (evt.key == "ArrowLeft") {
+                sangTrai();
+            }
+            if (evt.key == "ArrowRight") {
+                sangPhai();
+            }
+            if (evt.key == "Enter") {
+                tanCong();
+            }
+            // alert(evt.keyCode);
+        }
+
+        window.addEventListener("keydown", suKienBanPhim)
+            // keydown
+            // keyup
+            // keypress
+    </script>
+</body>
+
+</html>
+<!-- 
+    Bao ngoài bằng thẻ html: => document
+    - head
+        - title: tiêu đề
+        - meta: thông tin trang web
+    - body
+        - Chứa các thẻ nội dung trang web: hypertext
+        - media + text
+    
+    - Position: xác định vị trí các phần tử HTML ở bất cứ đâu trên trang web
+    position: relative
+    position: absolute
+    parseInt: ép kiểu dữ liệu về dạng số nguyên;
+    parseFloat: ép kiểu dữ liệu về dạng số thực;
+
+    Sự kiện bàn phím: Keyboard Event
+    addEventListener("onkeydown", function)
+ -->

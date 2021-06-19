@@ -1,0 +1,6 @@
+DOM là gì?
+Document Object Model -> Mô hình hóa tài liệu thành đối tượng
+-> Dễ dàng thao tác và xử lý hơn với HTML
+
+Object:(đối tượng) là những thực thể chứa thông tin(thuộc tính) và có hành động(phương thức)
+-
